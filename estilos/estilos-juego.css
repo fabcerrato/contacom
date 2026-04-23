@@ -1,0 +1,380 @@
+/* estilos-juego.css - Estilos para el juego */
+@import url('estilos-base.css');
+
+/* Stats modernos */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+    border-radius: 20px;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    animation: fadeInUp 0.4s ease;
+}
+
+.stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 40px;
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.stats span i.fa-check-circle {
+    color: #10b981;
+}
+
+.stats span i.fa-times-circle {
+    color: #ef4444;
+}
+
+.stats span i.fa-exclamation-triangle {
+    color: var(--accent);
+}
+
+.stats span i.fa-chart-simple {
+    color: var(--primary);
+}
+
+/* Barra de progreso moderna */
+.progress-container {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gray-300), var(--gray-400));
+    border-radius: 40px;
+    margin-bottom: 1.8rem;
+    overflow: hidden;
+    height: 12px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    border-radius: 40px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(15, 201, 242, 0.5);
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enunciado moderno */
+.enunciado {
+    background: linear-gradient(135deg, rgba(15, 201, 242, 0.1), rgba(7, 219, 242, 0.05));
+    padding: 1.3rem 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    border-left: 5px solid var(--accent);
+    line-height: 1.6;
+    animation: fadeInUp 0.5s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.enunciado strong {
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Tabla de cuentas T moderna */
+.modern-table {
+    animation: fadeInUp 0.6s ease;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.modern-table th {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.modern-table td {
+    padding: 1rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Fila de selectores */
+.selectores-row th {
+    padding: 1.2rem;
+}
+
+/* Selectores de cuenta modernos */
+.cuenta-select {
+    background: white !important;
+    color: var(--dark) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 40px !important;
+    border: 2px solid var(--primary) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease !important;
+    min-width: 180px !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230FC9F2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.8rem center !important;
+    background-size: 1.2rem !important;
+}
+
+.cuenta-select:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 201, 242, 0.2);
+}
+
+.cuenta-select:focus {
+    outline: none;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(242, 172, 87, 0.2);
+}
+
+/* Inputs de valores */
+.modern-table input[type="text"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #ffffff, #fefefe);
+    border: 2px solid var(--gray-300);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.modern-table input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(15, 201, 242, 0.1);
+    transform: translateY(-1px);
+}
+
+.modern-table input[type="text"]:hover {
+    border-color: var(--primary-light);
+}
+
+/* Celda separadora */
+.separator-cell {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    width: 60px;
+    text-align: center;
+}
+
+/* Encabezados DEBE/HABER */
+.headers-row th {
+    background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
+    color: var(--dark);
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Feedback moderno */
+.feedback {
+    margin-top: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 20px;
+    background: #fef3c7;
+    border-left: 5px solid var(--accent);
+    display: none;
+    animation: slideDown 0.4s ease;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-md);
+}
+
+.feedback.correcto {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border-left-color: #10b981;
+}
+
+.feedback.incorrecto {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border-left-color: #ef4444;
+}
+
+/* Botones modernos */
+.btn-verificar, .btn-siguiente {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.btn-verificar {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    box-shadow: 0 4px 15px rgba(15, 201, 242, 0.3);
+}
+
+.btn-verificar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(15, 201, 242, 0.4);
+}
+
+.btn-siguiente {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: white;
+    box-shadow: 0 4px 15px rgba(242, 172, 87, 0.3);
+}
+
+.btn-siguiente:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(242, 172, 87, 0.4);
+}
+
+/* Resultado final moderno */
+.resultado-final {
+    text-align: center;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #ffffff, var(--gray-100));
+    border-radius: 32px;
+    margin-top: 2rem;
+    animation: fadeInUp 0.6s ease;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(15, 201, 242, 0.2);
+}
+
+.resultado-final h3 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.resultado-final p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.resultado-final .score-highlight {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+.resultado-final button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.resultado-final button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 201, 242, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 0.8rem 1rem;
+    }
+    
+    .stats span {
+        justify-content: center;
+    }
+    
+    .enunciado {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .resultado-final {
+        padding: 1.5rem;
+    }
+    
+    .resultado-final h3 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-verificar, .btn-siguiente {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+        margin: 0.3rem;
+    }
+    
+    .modern-table input[type="text"] {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .modern-table th {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.3rem;
+    }
+    
+    .separator-cell {
+        width: 30px;
+        font-size: 1rem;
+    }
+    
+    .cuenta-select {
+        min-width: 120px !important;
+        font-size: 0.75rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    .selectores-row th {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cuenta-select {
+        min-width: 100px !important;
+        font-size: 0.7rem !important;
+    }
+}

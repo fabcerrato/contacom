@@ -1,0 +1,531 @@
+/* estilos-docente.css - Estilos para el panel del docente */
+@import url('estilos-base.css');
+
+/* Botón volver */
+.volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.8rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    background: var(--gray-200);
+}
+
+.volver:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    transform: translateX(-5px);
+}
+
+/* Formulario moderno */
+.form-ejercicio {
+    background: linear-gradient(135deg, #ffffff, #fafcff);
+    padding: 2rem;
+    border-radius: 32px;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(15, 201, 242, 0.2);
+    animation: fadeInUp 0.5s ease;
+}
+
+.form-ejercicio h3 {
+    margin-bottom: 1.8rem;
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-ejercicio h3 i {
+    color: var(--accent);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group label i {
+    margin-right: 0.4rem;
+    color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    border: 2px solid var(--gray-300);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(15, 201, 242, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botones del formulario */
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(15, 201, 242, 0.4);
+}
+
+.btn-cancelar {
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-cancelar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.4);
+}
+
+/* Filtros */
+.filtros-container {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 1.5rem;
+    border-radius: 24px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(15, 201, 242, 0.1);
+}
+
+.filtros-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filtros-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.filtro-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filtro-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.filtro-group select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    border: 2px solid var(--gray-300);
+    background: white;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.btn-limpiar {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-limpiar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Tabla moderna */
+.tabla-ejercicios {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+    border-radius: 24px;
+    background: white;
+    box-shadow: var(--shadow-md);
+    animation: slideIn 0.5s ease;
+}
+
+.tabla-ejercicios table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.85rem;
+}
+
+.tabla-ejercicios th {
+    background: linear-gradient(135deg, var(--dark), #1a1a1a);
+    color: white;
+    padding: 1rem 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-ejercicios th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.tabla-ejercicios th:last-child {
+    border-top-right-radius: 16px;
+}
+
+.tabla-ejercicios td {
+    border-bottom: 1px solid var(--gray-300);
+    padding: 0.9rem 0.6rem;
+    text-align: center;
+    vertical-align: middle;
+    transition: background 0.2s ease;
+}
+
+.tabla-ejercicios tr:hover td {
+    background: rgba(15, 201, 242, 0.05);
+}
+
+/* Estado activo/inactivo */
+.estado-activo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.estado-activo.true {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+}
+
+.estado-activo.false {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+}
+
+/* Botones de acción - CON MAYOR ESPACIADO */
+.accion-buttons-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.accion-btn {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+/* Espaciado específico entre botones */
+.accion-btn.editar {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    margin-right: 0.5rem;
+}
+
+.accion-btn.toggle-activo {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    margin-right: 0.5rem;
+}
+
+.accion-btn.eliminar {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.accion-btn.editar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(15, 201, 242, 0.4);
+}
+
+.accion-btn.toggle-activo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+.accion-btn.eliminar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+/* Celda de acciones */
+td:last-child {
+    min-width: 280px;
+    white-space: nowrap;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.loading-spinner::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--gray-300);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Sin resultados */
+.sin-resultados {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.sin-resultados i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .tabla-ejercicios {
+        font-size: 0.75rem;
+    }
+    
+    .tabla-ejercicios th,
+    .tabla-ejercicios td {
+        padding: 0.6rem 0.3rem;
+    }
+    
+    /* Ajuste de botones en tablet */
+    .accion-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.7rem;
+    }
+    
+    .accion-buttons-container {
+        gap: 0.6rem;
+    }
+    
+    td:last-child {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-ejercicio {
+        padding: 1.3rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .btn-primary, .btn-cancelar {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .filtros-row {
+        flex-direction: column;
+    }
+    
+    .filtro-group {
+        width: 100%;
+    }
+    
+    .tabla-ejercicios {
+        font-size: 0.7rem;
+    }
+    
+    .tabla-ejercicios th,
+    .tabla-ejercicios td {
+        padding: 0.5rem 0.2rem;
+    }
+    
+    /* Botones en móvil - apilados verticalmente */
+    .accion-buttons-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .accion-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+        margin: 0 !important;
+    }
+    
+    .accion-btn.editar,
+    .accion-btn.toggle-activo {
+        margin-right: 0 !important;
+    }
+    
+    td:last-child {
+        min-width: auto;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .accion-btn {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.5rem;
+    }
+}
+
+
+/* Animaciones para notificaciones */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Notificaciones */
+.notificacion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    z-index: 1000;
+    animation: slideInRight 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.notificacion-exito {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.notificacion-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}

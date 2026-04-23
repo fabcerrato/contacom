@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Cont@.com</title>
+    <link rel="icon" href="../recursos/isotipo_80.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/estilos-juego.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="card" style="max-width: 1200px; width: 100%; margin: 0 auto;">
+        <div class="card-header">
+            <h2><img src="../recursos/isotipo_80.png" alt="logo" width="70" height="70"> Ejercicio Contable</h2>
+            <p id="nivel-ronda-info">Selecciona las cuentas y los valores</p>
+        </div>
+        <div class="card-body">
+            <div class="stats">
+                <span><i class="fas fa-check-circle"></i> <span id="aciertos">0</span> correctas</span>
+                <span><i class="fas fa-times-circle"></i> <span id="errores">0</span> incorrectas</span>
+                <span><i class="fas fa-exclamation-triangle"></i> <span id="penalizaciones">0</span> penalizaciones</span>
+                <span><i class="fas fa-chart-simple"></i> Ejercicio <span id="ejercicio-actual">1</span> de <span id="total-ejercicios">0</span></span>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div id="enunciado-container" class="enunciado"></div>
+            
+            <table class="modern-table">
+                <thead>
+                    <tr class="selectores-row">
+                        <th colspan="3" style="background: linear-gradient(135deg, #0D0D0D, #1a1a1a); color: white; border-radius: 16px 0 0 0;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <select id="cuenta1_nombre" class="cuenta-select" style="background: white; color: #0D0D0D; padding: 0.5rem 1rem; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; min-width: 160px;">
+                                    <option value="">Seleccione una cuenta...</option>
+                                </select>
+                            </div>
+                        </th>
+                        <th></th>
+                        <th colspan="3" style="background: linear-gradient(135deg, #0D0D0D, #1a1a1a); color: white; border-radius: 0 16px 0 0;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <select id="cuenta2_nombre" class="cuenta-select" style="background: white; color: #0D0D0D; padding: 0.5rem 1rem; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; min-width: 160px;">
+                                    <option value="">Seleccione una cuenta...</option>
+                                </select>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr class="headers-row">
+                        <th><i class="fas fa-arrow-right" style="color: var(--primary);"></i> DEBE</th>
+                        <th><i class="fas fa-arrow-left" style="color: var(--accent);"></i> HABER</th>
+                        <th></th>
+                        <th></th>
+                        <th><i class="fas fa-arrow-right" style="color: var(--primary);"></i> DEBE</th>
+                        <th><i class="fas fa-arrow-left" style="color: var(--accent);"></i> HABER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="values-row">
+                        <td class="amount-cell">
+                            <input type="text" id="ct_cuenta1Debe" placeholder="0" inputmode="decimal">
+                        </td>
+                        <td class="amount-cell">
+                            <input type="text" id="ct_cuenta1Haber" placeholder="0" inputmode="decimal">
+                        </td>
+                        <td class="separator-cell">
+                            <i class="fas fa-exchange-alt" style="color: var(--accent);"></i>
+                        </td>
+                        <td style="width: 20px;"></td>
+                        <td class="amount-cell">
+                            <input type="text" id="ct_cuenta2Debe" placeholder="0" inputmode="decimal">
+                        </td>
+                        <td class="amount-cell">
+                            <input type="text" id="ct_cuenta2Haber" placeholder="0" inputmode="decimal">
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 1.2rem;">
+                            <button id="btn-verificar" class="btn-verificar"><i class="fas fa-search"></i> Verificar Respuesta</button>
+                            <button id="btn-siguiente" class="btn-siguiente" style="display:none;"><i class="fas fa-forward"></i> Siguiente Ejercicio</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div id="feedback" class="feedback"></div>
+            <div id="resultado-final" class="resultado-final" style="display:none;"></div>
+        </div>
+    </div>
+    
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../funcionabilidad/juego.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Docente - Cont@.com</title>
+    <link rel="icon" href="../recursos/isotipo_80.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/estilos-docente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="card" style="max-width: 1400px; width: 100%; margin: 0 auto;">
+        <div class="card-header">
+            <h2><img src="../recursos/isotipo_80.png" alt="logo" width="70" height="70"> Panel del Docente</h2>
+            <p>Gestión completa de ejercicios de cuentas T</p>
+            <!-- Gestión de sesión de usuario -->
+            <div class="session-status" style="position: absolute; top: 1rem; right: 1rem;">
+                <span class="session-badge">
+                    <i class="fas fa-clock"></i> 
+                    <span id="session-timer">30:00</span>
+                </span>
+            </div>
+        </div>
+        <div class="card-body">
+            <a href="../index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+            
+            <!-- Formulario para crear/editar ejercicio -->
+            <div class="form-ejercicio">
+                <h3 id="form-title"><i class="fas fa-plus-circle"></i> Crear nuevo ejercicio</h3>
+                <form id="form-crear-ejercicio">
+                    <input type="hidden" id="ejercicio-id" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-chart-line"></i> Nivel:</label>
+                            <select id="nivel" required>
+                                <option value="facil">⭐ Fácil</option>
+                                <option value="medio">⭐⭐ Medio</option>
+                                <option value="dificil">⭐⭐⭐ Difícil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-hashtag"></i> Número de Ronda:</label>
+                            <input type="number" id="ronda" required min="1" value="1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-file-alt"></i> Descripción del enunciado:</label>
+                        <textarea id="enunciado" rows="2" placeholder="Ej: Registra la compra de mercadería al contado..." required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> Cuenta 1 (Nombre):</label>
+                            <select id="cuenta1_nombre" required>
+                                <option value="">Seleccione una cuenta...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-arrow-right"></i> Valor Debe Cuenta 1:</label>
+                            <input type="number" step="any" id="cuenta1_debe" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-arrow-left"></i> Valor Haber Cuenta 1:</label>
+                            <input type="number" step="any" id="cuenta1_haber" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> Cuenta 2 (Nombre):</label>
+                            <select id="cuenta2_nombre" required>
+                                <option value="">Seleccione una cuenta...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-arrow-right"></i> Valor Debe Cuenta 2:</label>
+                            <input type="number" step="any" id="cuenta2_debe" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-arrow-left"></i> Valor Haber Cuenta 2:</label>
+                            <input type="number" step="any" id="cuenta2_haber" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-toggle-on"></i> Estado:</label>
+                        <select id="activo">
+                            <option value="true">✅ Activo (visible para estudiantes)</option>
+                            <option value="false">❌ Inactivo (oculto)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Guardar Ejercicio</button>
+                        <button type="button" id="btn-cancelar-edicion" class="btn-cancelar" style="display:none;"><i class="fas fa-times"></i> Cancelar Edición</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Filtros para la tabla -->
+            <div class="filtros-container">
+                <h3><i class="fas fa-filter"></i> Filtrar ejercicios</h3>
+                <div class="filtros-row">
+                    <div class="filtro-group">
+                        <label><i class="fas fa-chart-line"></i> Nivel:</label>
+                        <select id="filtro-nivel">
+                            <option value="todos">Todos los niveles</option>
+                            <option value="facil">⭐ Fácil</option>
+                            <option value="medio">⭐⭐ Medio</option>
+                            <option value="dificil">⭐⭐⭐ Difícil</option>
+                        </select>
+                    </div>
+                    <div class="filtro-group">
+                        <label><i class="fas fa-hashtag"></i> Ronda:</label>
+                        <select id="filtro-ronda">
+                            <option value="todos">Todas las rondas</option>
+                        </select>
+                    </div>
+                    <div class="filtro-group">
+                        <label><i class="fas fa-toggle-on"></i> Estado:</label>
+                        <select id="filtro-estado">
+                            <option value="todos">Todos</option>
+                            <option value="activo">✅ Activos</option>
+                            <option value="inactivo">❌ Inactivos</option>
+                        </select>
+                    </div>
+                    <div class="filtro-group">
+                        <button id="btn-limpiar-filtros" class="btn-limpiar"><i class="fas fa-eraser"></i> Limpiar Filtros</button>
+                    </div>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-list"></i> Listado de Ejercicios</h3>
+            <div id="lista-ejercicios" class="tabla-ejercicios">
+                <div class="loading-spinner">Cargando ejercicios...</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../funcionabilidad/docente.js"></script>
+</body>
+</html>

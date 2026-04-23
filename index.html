@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Cont@.com</title>
+    <link rel="icon" href="recursos/isotipo_80.ico">
+    <link rel="stylesheet" href="estilos/estilos-index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <!-- Botón flotante para mostrar login -->
+    <button class="login-toggle-btn" id="loginToggleBtn">
+        <i class="fas fa-chalkboard-teacher"></i>
+    </button>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+            <h4 style="text-align: center; margin-bottom: 1.5rem; color: var(--dark);">
+                <i class="fas fa-chalkboard-teacher" style="color: var(--accent);"></i> Acceso Docente
+            </h4>
+            <input type="email" id="docente-email" placeholder="📧 Correo electrónico" style="width:100%; padding:0.85rem; margin-bottom:1rem; border-radius:16px; border:2px solid var(--gray-300); font-family: inherit;">
+            <input type="password" id="docente-password" placeholder="🔒 Contraseña" style="width:100%; padding:0.85rem; margin-bottom:1.5rem; border-radius:16px; border:2px solid var(--gray-300); font-family: inherit;">
+            <button id="login-btn" style="width:100%; padding:0.85rem; background:linear-gradient(135deg, var(--primary), var(--secondary)); border:none; border-radius:40px; font-weight:700; cursor:pointer;">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </button>
+        </div>
+    </div>
+
+    <div class="card" style="max-width: 1200px; width: 100%; margin: 0 auto;">
+        <div class="card-header">
+            <h2><img src="../recursos/isotipo_80.png" alt="logo" width="70" height="70">Cont@.com</h2>
+            <p>Aprende contabilidad con ejercicios interactivos de cuentas T</p>
+        </div>
+        <div class="card-body">
+            <!-- Sección para ESTUDIANTES (visible por defecto) -->
+            <div id="estudiante-section">
+                <div class="welcome-section">
+                    <h3>🎓 ¡Bienvenido Estudiante!</h3>
+                    <p>Selecciona un nivel y una ronda para comenzar tu práctica</p>
+                </div>
+                
+                <!-- Niveles y rondas -->
+                <div id="contenedor-niveles" class="levels-container">
+                    <div class="loading-spinner">Cargando ejercicios...</div>
+                </div>
+            </div>
+            
+            <!-- Sección para DOCENTES (oculta por defecto) -->
+            <div id="docente-section" style="display: none;">
+                <div class="welcome-section docente-welcome">
+                    <h3>👨‍🏫 ¡Bienvenido Docente!</h3>
+                    <p>Has iniciado sesión correctamente. Aquí puedes gestionar los ejercicios.</p>
+                </div>
+                
+                <div class="docente-actions">
+                    <a href="interfaces/docente.html" class="btn-docente"><i class="fas fa-edit"></i> Gestionar Ejercicios</a>
+                    <button id="logout-btn" class="btn-docente"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="funcionabilidad/index.js"></script>
+</body>
+</html>
